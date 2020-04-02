@@ -6,3 +6,20 @@ before_install:
 
 script:
     - docker run rayan/reactapp npm run test -- --coverage
+
+deploy:
+    provider: elasticbeanstalk 
+    region: "us-west-2"
+    name: "reactapp"
+    env: "reactapp-env"
+    bucket_name: "***"
+    bucket_path: "reactapp"
+    on:
+        branch: master
+
+    access_key_id: "$AWS_ACCESS_KEY_ID"
+    access_secret_id: "$AWS_SECRET_KEY_ID""
+
+
+
+
